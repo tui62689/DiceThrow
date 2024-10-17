@@ -13,9 +13,11 @@ class MainActivity : AppCompatActivity() {
             (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).throwDie()
         }
 
-        val fragment = DieFragment.newInstance(10)
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.dieContainer)
 
-        supportFragmentManager.beginTransaction().add(R.id.dieContainer, fragment).commit()
-
+        if (currentFragment !is DieFragment) {
+            val fragment = DieFragment.newInstance(10)
+            supportFragmentManager.beginTransaction().add(R.id.dieContainer, fragment).commit()
+        }
     }
 }
