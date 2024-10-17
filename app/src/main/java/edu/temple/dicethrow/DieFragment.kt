@@ -48,8 +48,8 @@ class DieFragment : Fragment() {
     }
 
     companion object{
-        fun newInstance(sides: IntArray) = DieFragment().apply{
-            arguments = Bundle().apply { putIntArray(DIESIDE, sides) }
+        fun newInstance(sides: Int) = DieFragment().apply{
+            arguments = Bundle().apply { putInt(DIESIDE, sides) }
         }
     }
 }

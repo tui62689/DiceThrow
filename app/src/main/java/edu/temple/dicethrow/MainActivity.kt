@@ -2,10 +2,7 @@ package edu.temple.dicethrow
 
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +13,9 @@ class MainActivity : AppCompatActivity() {
             (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).throwDie()
         }
 
+        val fragment = DieFragment.newInstance(10)
+
+        supportFragmentManager.beginTransaction().add(R.id.dieContainer, fragment).commit()
 
     }
 }
