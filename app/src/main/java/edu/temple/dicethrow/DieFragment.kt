@@ -42,7 +42,12 @@ class DieFragment : Fragment() {
         savedInstanceState?.run{
             rollValue = getInt(KEY)
         }
-        throwDie()
+
+        if(rollValue == 0){
+            throwDie()
+        } else{
+            dieTextView.text = rollValue.toString()
+        }
 
     }
 
