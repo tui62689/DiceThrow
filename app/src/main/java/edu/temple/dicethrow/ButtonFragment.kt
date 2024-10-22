@@ -18,7 +18,7 @@ class ButtonFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_button, container, false).apply{
             findViewById<Button>(R.id.button).setOnClickListener{
-
+                (requireActivity() as MainActivity).buttonClicked()
             }
         }
     }

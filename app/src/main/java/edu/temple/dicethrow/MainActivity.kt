@@ -20,4 +20,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().add(R.id.dieContainer, fragment).commit()
         }
     }
+
+    fun buttonClicked(){
+        (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).throwDie()
+    }
 }
