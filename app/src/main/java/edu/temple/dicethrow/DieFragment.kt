@@ -16,6 +16,7 @@ class DieFragment : Fragment() {
 
     var dieSides: Int = 6
     var rollValue: Int = 0
+    val KEY = "mykey"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +39,16 @@ class DieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        savedInstanceState?.run{
+            rollValue = getInt(KEY)
+        }
         throwDie()
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY, rollValue)
 
     }
 
