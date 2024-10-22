@@ -23,4 +23,8 @@ class ButtonFragment : Fragment() {
         }
     }
 
+    interface ButtonInterface{
+        fun buttonClicked()
+    }
+
 }
