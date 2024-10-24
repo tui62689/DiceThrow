@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ButtonFragment.ButtonInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*findViewById<Button>(R.id.rollDiceButton).setOnClickListener{
-            (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).throwDie()
-        }*/
 
         val currentFragment = supportFragmentManager.findFragmentById(R.id.dieContainer)
 

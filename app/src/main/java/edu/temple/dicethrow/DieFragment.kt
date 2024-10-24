@@ -45,28 +45,21 @@ class DieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        savedInstanceState?.run{
-            rollValue = getInt(KEY)
+
+        dieViewModel.getDieRoll().observe(viewLifecycleOwner){
+            dieTextView.text = it.toString()
         }
 
-        if(rollValue != 0){
-            dieTextView.text = rollValue.toString()
-
-        } else{
+        if(dieViewModel.getDieRoll().value == null){
             throwDie()
         }
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt(KEY, rollValue)
 
-    }
 
     fun throwDie() {
-        rollValue = Random.nextInt(1, dieSides)
-        dieTextView.text = rollValue.toString()
+        dieViewModel.setDieRoll(Random.nextInt(1, dieSides))
     }
 
     companion object{
