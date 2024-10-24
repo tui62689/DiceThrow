@@ -43,10 +43,11 @@ class DieFragment : Fragment() {
             rollValue = getInt(KEY)
         }
 
-        if(rollValue == 0){
-            throwDie()
-        } else{
+        if(rollValue != 0){
             dieTextView.text = rollValue.toString()
+
+        } else{
+            throwDie()
         }
 
     }
