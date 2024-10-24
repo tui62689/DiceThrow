@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun buttonClicked(){
+    override fun buttonClicked(){
         (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).throwDie()
     }
 }
